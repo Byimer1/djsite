@@ -11,14 +11,14 @@ export function Navigation() {
   ];
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-40">
+    <nav className="bg-black border-b-2 border-orange-500 sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-3">
-            <div className="bg-orange-500 p-2 rounded-lg">
+            <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-2 rounded-lg pulse-glow">
               <Music className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-slate-900">DJ Biruk</span>
+            <span className="text-2xl font-bold text-white tracking-wider">DJ BIRUK</span>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -26,22 +26,23 @@ export function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-slate-700 hover:text-orange-500 font-medium transition-colors"
+                className="text-white hover:text-orange-400 font-semibold transition-colors relative group"
               >
                 {link.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
             <a
               href="#contact"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold px-6 py-2 rounded-lg transition-all transform hover:scale-105 shadow-lg"
             >
-              Book Now
+              BOOK NOW
             </a>
           </div>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-slate-700 hover:text-orange-500"
+            className="md:hidden text-white hover:text-orange-400"
           >
             <svg
               className="w-6 h-6"
@@ -70,14 +71,14 @@ export function Navigation() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-slate-200">
+        <div className="md:hidden bg-slate-950 border-t border-orange-500">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-slate-700 hover:text-orange-500 font-medium transition-colors"
+                className="block text-white hover:text-orange-400 font-semibold transition-colors"
               >
                 {link.label}
               </a>
@@ -85,9 +86,9 @@ export function Navigation() {
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
-              className="block text-center bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-lg transition-colors"
+              className="block text-center bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold px-6 py-2 rounded-lg transition-all"
             >
-              Book Now
+              BOOK NOW
             </a>
           </div>
         </div>

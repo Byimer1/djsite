@@ -71,7 +71,7 @@ export function Gallery() {
 
   if (loading) {
     return (
-      <section id="gallery" className="py-20 bg-slate-50">
+      <section id="gallery" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center py-20">
             <Loader2 className="w-8 h-8 animate-spin text-orange-500" />
@@ -82,32 +82,39 @@ export function Gallery() {
   }
 
   return (
-    <section id="gallery" className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="py-20 bg-black relative overflow-hidden">
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-orange-500 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Event Gallery
+          <div className="flex justify-center mb-4">
+            <Camera className="w-12 h-12 text-orange-500 floating" />
+          </div>
+          <h2 className="text-5xl md:text-6xl font-black text-white mb-4 tracking-tight">
+            EVENT GALLERY
           </h2>
-          <p className="text-xl text-slate-600 mb-8">
-            Memorable moments from our events
+          <p className="text-xl text-orange-300 font-semibold mb-8">
+            Capturing unforgettable moments from our events
           </p>
 
           <button
             onClick={() => setShowUploadForm(!showUploadForm)}
-            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-all"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg uppercase tracking-wider"
           >
-            <Upload className="w-5 h-5" />
+            <Upload className="w-6 h-6" />
             Upload Photos
           </button>
         </div>
 
         {showUploadForm && (
-          <div className="max-w-2xl mx-auto mb-12 bg-white p-6 rounded-lg shadow-lg">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-bold text-slate-900">Upload Photo</h3>
+          <div className="max-w-2xl mx-auto mb-12 bg-slate-900 border-2 border-orange-500 p-8 rounded-xl shadow-2xl">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-black text-white uppercase tracking-wider">Upload Photo</h3>
               <button
                 onClick={() => setShowUploadForm(false)}
-                className="text-slate-400 hover:text-slate-600"
+                className="text-orange-400 hover:text-orange-300 transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -117,14 +124,14 @@ export function Gallery() {
               <div>
                 <label
                   htmlFor="caption"
-                  className="block text-sm font-medium text-slate-700 mb-1"
+                  className="block text-sm font-bold text-white mb-2 uppercase tracking-wider"
                 >
                   Caption
                 </label>
                 <input
                   type="text"
                   id="caption"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-4 py-3 bg-slate-800 border-2 border-slate-700 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
                   placeholder="Event description"
                 />
               </div>
@@ -132,20 +139,20 @@ export function Gallery() {
               <div>
                 <label
                   htmlFor="eventType"
-                  className="block text-sm font-medium text-slate-700 mb-1"
+                  className="block text-sm font-bold text-white mb-2 uppercase tracking-wider"
                 >
                   Event Type
                 </label>
                 <input
                   type="text"
                   id="eventType"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full px-4 py-3 bg-slate-800 border-2 border-slate-700 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all"
                   placeholder="Wedding, Party, Corporate, etc."
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">
+                <label className="block text-sm font-bold text-white mb-2 uppercase tracking-wider">
                   Select Image
                 </label>
                 <input
@@ -153,14 +160,14 @@ export function Gallery() {
                   accept="image/*"
                   onChange={handleImageUpload}
                   disabled={uploading}
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-orange-50 file:text-orange-700 hover:file:bg-orange-100"
+                  className="w-full px-4 py-3 bg-slate-800 border-2 border-slate-700 text-white rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-orange-500 file:text-white file:font-bold hover:file:bg-orange-600 transition-all"
                 />
               </div>
 
               {uploading && (
-                <div className="flex items-center gap-2 text-orange-600">
+                <div className="flex items-center gap-2 text-orange-400 font-bold">
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  <span>Uploading...</span>
+                  <span>UPLOADING...</span>
                 </div>
               )}
             </div>
@@ -169,31 +176,31 @@ export function Gallery() {
 
         {photos.length === 0 ? (
           <div className="text-center py-20">
-            <Camera className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-            <p className="text-slate-500 text-lg">
+            <Camera className="w-20 h-20 text-orange-500/30 mx-auto mb-6" />
+            <p className="text-white text-xl font-bold">
               No photos yet. Upload your first event photo!
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {photos.map((photo) => (
               <div
                 key={photo.id}
-                className="group relative aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all cursor-pointer"
+                className="group relative aspect-square overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer border-2 border-slate-800 hover:border-orange-500"
                 onClick={() => setSelectedImage(photo.image_url)}
               >
                 <img
                   src={photo.image_url}
                   alt={photo.caption || 'Event photo'}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     {photo.caption && (
-                      <p className="font-semibold mb-1">{photo.caption}</p>
+                      <p className="font-bold text-lg mb-2">{photo.caption}</p>
                     )}
                     {photo.event_type && (
-                      <p className="text-sm text-slate-200">{photo.event_type}</p>
+                      <p className="text-sm text-orange-300 font-semibold">{photo.event_type.toUpperCase()}</p>
                     )}
                   </div>
                 </div>
@@ -205,19 +212,19 @@ export function Gallery() {
 
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-slate-900/95 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/98 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
           <button
-            className="absolute top-4 right-4 text-white hover:text-slate-300"
+            className="absolute top-6 right-6 text-orange-400 hover:text-orange-300 transition-colors"
             onClick={() => setSelectedImage(null)}
           >
-            <X className="w-8 h-8" />
+            <X className="w-10 h-10" />
           </button>
           <img
             src={selectedImage}
             alt="Full size"
-            className="max-w-full max-h-full object-contain"
+            className="max-w-full max-h-full object-contain rounded-lg"
           />
         </div>
       )}

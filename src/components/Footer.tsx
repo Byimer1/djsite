@@ -2,57 +2,59 @@ import { Music, Phone, Mail } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-slate-950 text-white py-12">
+    <footer className="bg-black border-t-2 border-orange-500 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-orange-500 p-2 rounded-lg">
-                <Music className="w-6 h-6" />
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-3 rounded-lg pulse-glow">
+                <Music className="w-7 h-7 text-white" />
               </div>
-              <span className="text-xl font-bold">DJ Biruk</span>
+              <span className="text-2xl font-black tracking-wider">DJ BIRUK</span>
             </div>
-            <p className="text-slate-400 text-sm">
-              Professional DJ and sound services for all your special events.
-              Creating memorable experiences through music.
+            <p className="text-white/70 font-semibold leading-relaxed">
+              Elite event sound and DJ services. Creating unforgettable moments through premium sound and professional performance.
             </p>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-slate-400 text-sm">
+            <h3 className="font-black text-lg mb-6 text-orange-400 uppercase tracking-wider">Navigation</h3>
+            <ul className="space-y-3 text-white font-bold">
               <li>
-                <a href="#packages" className="hover:text-orange-500 transition-colors">
+                <a href="#packages" className="hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 bg-orange-500 group-hover:bg-orange-400 rounded-full transition-colors"></span>
                   Service Packages
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="hover:text-orange-500 transition-colors">
+                <a href="#gallery" className="hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 bg-orange-500 group-hover:bg-orange-400 rounded-full transition-colors"></span>
                   Event Gallery
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-orange-500 transition-colors">
-                  Book Now
+                <a href="#contact" className="hover:text-orange-400 transition-colors flex items-center gap-2 group">
+                  <span className="w-1.5 h-1.5 bg-orange-500 group-hover:bg-orange-400 rounded-full transition-colors"></span>
+                  Book Event
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact Info</h3>
-            <ul className="space-y-3 text-slate-400 text-sm">
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-orange-500" />
-                <a href="tel:240-516-4220" className="hover:text-orange-500 transition-colors">
+            <h3 className="font-black text-lg mb-6 text-orange-400 uppercase tracking-wider">Contact</h3>
+            <ul className="space-y-4 font-bold">
+              <li className="flex items-center gap-3 group">
+                <Phone className="w-5 h-5 text-orange-500 group-hover:text-orange-400 transition-colors" />
+                <a href="tel:240-516-4220" className="hover:text-orange-400 transition-colors">
                   240-516-4220
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-orange-500" />
+              <li className="flex items-center gap-3 group">
+                <Mail className="w-5 h-5 text-orange-500 group-hover:text-orange-400 transition-colors" />
                 <a
                   href="mailto:birukesh24@gmail.com"
-                  className="hover:text-orange-500 transition-colors"
+                  className="hover:text-orange-400 transition-colors break-all"
                 >
                   birukesh24@gmail.com
                 </a>
@@ -61,8 +63,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8 text-center text-slate-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} DJ Biruk. All rights reserved.</p>
+        <div className="border-t border-orange-500/30 pt-8 text-center">
+          <p className="text-white/60 font-bold tracking-wide">
+            &copy; {new Date().getFullYear()} DJ BIRUK. ELITE EVENT SOUND & DJ SERVICES. ALL RIGHTS RESERVED.
+          </p>
         </div>
       </div>
     </footer>
