@@ -4,7 +4,7 @@ export function Packages() {
   const packages = [
     {
       title: 'Full DJ Service',
-      price: '$650',
+      price: 'Starting from $650',
       icon: Music2,
       description: 'Complete professional DJ experience for your event',
       features: [
